@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeShop", "BikeShop\BikeShop.csproj", "{8BE118AC-185E-43D5-97BA-18933766EA6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BikeShop.Test", "BikeShop.Test\BikeShop.Test.csproj", "{6F1B3C84-0B01-462E-AE3A-67D56B07C8F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8BE118AC-185E-43D5-97BA-18933766EA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BE118AC-185E-43D5-97BA-18933766EA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BE118AC-185E-43D5-97BA-18933766EA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1B3C84-0B01-462E-AE3A-67D56B07C8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1B3C84-0B01-462E-AE3A-67D56B07C8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1B3C84-0B01-462E-AE3A-67D56B07C8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1B3C84-0B01-462E-AE3A-67D56B07C8F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
