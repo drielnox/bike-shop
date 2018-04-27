@@ -25,7 +25,7 @@ namespace BikeShop
             Receive(bike);
         }
 
-        public BikeShop(Bike[] bikes)
+        public BikeShop(IEnumerable<Bike> bikes)
             : this()
         {
             Receive(bikes);

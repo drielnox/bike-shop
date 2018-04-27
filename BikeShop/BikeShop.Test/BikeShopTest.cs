@@ -67,5 +67,13 @@ namespace BikeShop.Test
 
             Assert.IsTrue(shop.Bikes.Count() == 3);
         }
+
+        //[TestMethod]
+        //public void RentABike()
+        //{
+        //    var fac = new BikeFactory();
+        //    var req = new RentRequest();
+        //    var shop = new BikeShop();
+        //}
     }
 }
