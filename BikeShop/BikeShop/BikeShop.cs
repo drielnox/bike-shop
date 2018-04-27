@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BikeShop
 {
-    public class Class1
+    public class BikeShop
     {
     }
 }

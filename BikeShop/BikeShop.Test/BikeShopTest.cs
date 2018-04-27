@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BikeShop.Test
 {
@@ -7,8 +6,11 @@ namespace BikeShop.Test
     public class BikeShopTest
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CanCreateABikeShop()
         {
+            BikeShop shop = new BikeShop();
+
+            Assert.IsNotNull(shop);
         }
     }
 }
