@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace BikeShop.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class BikeShopTest
     {
         [TestMethod]
         public void TestMethod1()
