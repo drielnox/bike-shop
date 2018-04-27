@@ -50,6 +50,7 @@
     <Compile Include="BikeShop.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RentRequest.cs" />
+    <Compile Include="RentReturn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BikeShop.ruleset" />

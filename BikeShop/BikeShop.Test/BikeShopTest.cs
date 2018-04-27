@@ -87,5 +87,21 @@ namespace BikeShop.Test
             Assert.IsTrue(rentedBikes.Count() == 2);
             Assert.IsTrue(shop.Bikes.Count() == 1);
         }
+
+        [TestMethod]
+        public void ReceiveARentedBike()
+        {
+            var req = new RentRequest(2);
+            var bikes = _fac.Create(3);
+            var shop = new BikeShop(bikes);
+
+            var rentedBikes = shop.Rent(req);
+
+            var ret = new RentReturn(rentedBikes);
+            
+            shop.ReceiveFromRent(ret);
+            
+            Assert.IsTrue(shop.Bikes.Count() == 3);
+        }
     }
 }

@@ -63,5 +63,10 @@ namespace BikeShop
 
             return bikesToTake;
         }
+
+        public void ReceiveFromRent(RentReturn ret)
+        {
+            Receive(ret.Bikes);
+        }
     }
 }
