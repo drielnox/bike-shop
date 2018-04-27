@@ -64,9 +64,11 @@ namespace BikeShop
             return bikesToTake;
         }
 
-        public void ReceiveFromRent(RentReturn ret)
+        public Invoice ReceiveFromRent(RentReturn ret)
         {
             Receive(ret.Bikes);
+
+            return new Invoice();
         }
     }
 }

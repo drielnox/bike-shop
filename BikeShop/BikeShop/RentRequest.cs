@@ -12,13 +12,27 @@ namespace BikeShop
 
     public class RentRequest
     {
+        public enum RentMode
+        {
+            Hour
+        }
+
         internal readonly int _quantity;
+        private RentMode _hour;
 
         public int Quantity
         {
             get
             {
                 return _quantity;
+            }
+        }
+
+        public RentMode Mode
+        {
+            get
+            {
+                return _hour;
             }
         }
 
@@ -30,6 +44,12 @@ namespace BikeShop
         public RentRequest(int quantity)
         {
             _quantity = quantity;
+        }
+
+        public RentRequest(RentMode mode)
+            : this(1)
+        {
+            _hour = mode;
         }
     }
 }
