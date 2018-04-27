@@ -51,5 +51,17 @@ namespace BikeShop
                 Receive(bike);
             }
         }
+
+        public IEnumerable<Bike> Rent(RentRequest req)
+        {
+            var bikesToTake = _bikes.Take(req.Quantity);
+
+            foreach (var bike in bikesToTake)
+            {
+                _bikes.Remove(bike);
+            }
+
+            return bikesToTake;
+        }
     }
 }
