@@ -32,5 +32,25 @@ namespace BikeShop.Test
             Assert.IsTrue(req.Quantity == 1);
             Assert.IsTrue(req.Mode == RentRequest.RentMode.Hour);
         }
+
+        [TestMethod]
+        public void CreateARentRequestByDay()
+        {
+            var req = new RentRequest(RentRequest.RentMode.Day);
+
+            Assert.IsNotNull(req);
+            Assert.IsTrue(req.Quantity == 1);
+            Assert.IsTrue(req.Mode == RentRequest.RentMode.Day);
+        }
+
+        [TestMethod]
+        public void CreateARentRequestByWeek()
+        {
+            var req = new RentRequest(RentRequest.RentMode.Week);
+
+            Assert.IsNotNull(req);
+            Assert.IsTrue(req.Quantity == 1);
+            Assert.IsTrue(req.Mode == RentRequest.RentMode.Week);
+        }
     }
 }

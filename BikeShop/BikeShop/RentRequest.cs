@@ -14,7 +14,9 @@ namespace BikeShop
     {
         public enum RentMode
         {
-            Hour
+            Hour,
+            Day,
+            Week
         }
 
         internal readonly int _quantity;
