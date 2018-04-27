@@ -41,5 +41,10 @@ namespace BikeShop
                 return _bikes;
             }
         }
+
+        public void Receive(Bike bike)
+        {
+            _bikes.Add(bike);
+        }
     }
 }
