@@ -6,6 +6,8 @@ namespace BikeShop.Test
     [TestClass]
     public class BikeShopTest
     {
+        private static BikeFactory _fac = new BikeFactory();
+
         [TestMethod]
         public void CanCreateABikeShop()
         {
@@ -17,7 +19,7 @@ namespace BikeShop.Test
         [TestMethod]
         public void CanCreateABikeShopWithABike()
         {
-            var bike = new Bike();
+            var bike = _fac.Create();
             var shop = new BikeShop(bike);
 
             Assert.IsNotNull(shop);
@@ -28,12 +30,7 @@ namespace BikeShop.Test
         [TestMethod]
         public void CanCreateABikeShopWithSomeBikes()
         {
-            var bikes = new Bike[] 
-            {
-                new Bike(),
-                new Bike(),
-                new Bike()
-            };
+            var bikes = _fac.Create(3);
             var shop = new BikeShop(bikes);
 
             Assert.IsNotNull(shop);
@@ -45,7 +42,7 @@ namespace BikeShop.Test
         public void CanCreateABikeShopThenAfterReceiveABike()
         {
             var shop = new BikeShop();
-            var bike = new Bike();
+            var bike = _fac.Create();
 
             shop.Receive(bike);
 
@@ -55,12 +52,7 @@ namespace BikeShop.Test
         [TestMethod]
         public void CanCreateABikeShopThenAfterReceiveSomeBikes()
         {
-            var bikes = new Bike[]
-            {
-                new Bike(),
-                new Bike(),
-                new Bike()
-            };
+            var bikes = _fac.Create(3);
             var shop = new BikeShop(bikes);
 
             shop.Receive(bikes);
