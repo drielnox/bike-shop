@@ -60,18 +60,32 @@ namespace BikeShop.Test
             Assert.IsTrue(shop.Bikes.Count() == 3);
         }
 
-        //[TestMethod]
-        //public void RentABike()
-        //{
-        //    var req = new RentRequest();
-        //    var bikes = _fac.Create(3);
-        //    var shop = new BikeShop(bikes);
+        [TestMethod]
+        public void RentABike()
+        {
+            var req = new RentRequest();
+            var bikes = _fac.Create(3);
+            var shop = new BikeShop(bikes);
 
-        //    var rentedBikes = shop.Rent(req);
+            var rentedBikes = shop.Rent(req);
 
-        //    Assert.IsNotNull(rentedBikes);
-        //    Assert.IsTrue(rentedBikes.Count() == 1);
-        //    Assert.IsTrue(shop.Bikes.Count() == 2);
-        //}
+            Assert.IsNotNull(rentedBikes);
+            Assert.IsTrue(rentedBikes.Count() == 1);
+            Assert.IsTrue(shop.Bikes.Count() == 2);
+        }
+
+        [TestMethod]
+        public void RentSomeBikesWithSpecifiedQuantity()
+        {
+            var req = new RentRequest(2);
+            var bikes = _fac.Create(3);
+            var shop = new BikeShop(bikes);
+
+            var rentedBikes = shop.Rent(req);
+
+            Assert.IsNotNull(rentedBikes);
+            Assert.IsTrue(rentedBikes.Count() == 2);
+            Assert.IsTrue(shop.Bikes.Count() == 1);
+        }
     }
 }

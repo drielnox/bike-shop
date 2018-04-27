@@ -54,7 +54,7 @@ namespace BikeShop
 
         public IEnumerable<Bike> Rent(RentRequest req)
         {
-            var bikesToTake = _bikes.Take(req.Quantity);
+            var bikesToTake = _bikes.Take(req.Quantity).ToArray();
 
             foreach (var bike in bikesToTake)
             {
