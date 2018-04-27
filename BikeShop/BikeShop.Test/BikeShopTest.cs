@@ -51,5 +51,21 @@ namespace BikeShop.Test
 
             Assert.IsTrue(shop.Bikes.Count() == 1);
         }
+
+        [TestMethod]
+        public void CanCreateABikeShopThenAfterReceiveSomeBikes()
+        {
+            var bikes = new Bike[]
+            {
+                new Bike(),
+                new Bike(),
+                new Bike()
+            };
+            var shop = new BikeShop(bikes);
+
+            shop.Receive(bikes);
+
+            Assert.IsTrue(shop.Bikes.Count() == 3);
+        }
     }
 }

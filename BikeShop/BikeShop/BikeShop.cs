@@ -22,16 +22,13 @@ namespace BikeShop
         public BikeShop(Bike bike)
             : this()
         {
-            _bikes.Add(bike);
+            Receive(bike);
         }
 
         public BikeShop(Bike[] bikes)
             : this()
         {
-            foreach (var bike in bikes)
-            {
-                _bikes.Add(bike);
-            }
+            Receive(bikes);
         }
 
         public IEnumerable<Bike> Bikes
@@ -45,6 +42,14 @@ namespace BikeShop
         public void Receive(Bike bike)
         {
             _bikes.Add(bike);
+        }
+
+        public void Receive(IEnumerable<Bike> bikes)
+        {
+            foreach (var bike in bikes)
+            {
+                Receive(bike);
+            }
         }
     }
 }
