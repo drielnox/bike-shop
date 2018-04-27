@@ -23,6 +23,7 @@
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
     <DocumentationFile>bin\Debug\BikeShop.xml</DocumentationFile>
     <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>BikeShop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>BikeShop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -50,6 +52,7 @@
     <Compile Include="RentRequest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BikeShop.ruleset" />
     <None Include="packages.config" />
     <AdditionalFiles Include="stylecop.json" />
   </ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BikeShop.Test
@@ -22,6 +23,17 @@ namespace BikeShop.Test
             var bike = fac.Create();
 
             Assert.IsNotNull(bike);
+        }
+
+        [TestMethod]
+        public void CreateSomeBikesFromBikeFactory()
+        {
+            var fac = new BikeFactory();
+
+            var bikes = fac.Create(3);
+
+            Assert.IsNotNull(bikes);
+            Assert.IsTrue(bikes.Count() == 3);
         }
     }
 }
