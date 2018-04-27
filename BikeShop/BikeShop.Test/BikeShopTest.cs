@@ -9,7 +9,7 @@ namespace BikeShop.Test
         [TestMethod]
         public void CanCreateABikeShop()
         {
-            BikeShop shop = new BikeShop();
+            var shop = new BikeShop();
 
             Assert.IsNotNull(shop);
         }
@@ -17,12 +17,28 @@ namespace BikeShop.Test
         [TestMethod]
         public void CanCreateABikeShopWithABike()
         {
-            Bike bike = new Bike();
-            BikeShop shop = new BikeShop(bike);
+            var bike = new Bike();
+            var shop = new BikeShop(bike);
 
             Assert.IsNotNull(shop);
             Assert.IsNotNull(shop.Bikes);
-            Assert.IsTrue(shop.Bikes.Count() > 0);
+            Assert.IsTrue(shop.Bikes.Count() == 1);
+        }
+
+        [TestMethod]
+        public void CanCreateABikeShopWithSomeBikes()
+        {
+            var bikes = new Bike[] 
+            {
+                new Bike(),
+                new Bike(),
+                new Bike()
+            };
+            var shop = new BikeShop(bikes);
+
+            Assert.IsNotNull(shop);
+            Assert.IsNotNull(shop.Bikes);
+            Assert.IsTrue(shop.Bikes.Count() == 3);
         }
     }
 }

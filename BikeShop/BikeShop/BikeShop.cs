@@ -25,6 +25,15 @@ namespace BikeShop
             _bikes.Add(bike);
         }
 
+        public BikeShop(Bike[] bikes)
+            : this()
+        {
+            foreach (var bike in bikes)
+            {
+                _bikes.Add(bike);
+            }
+        }
+
         public IEnumerable<Bike> Bikes
         {
             get
