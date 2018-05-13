@@ -22,21 +22,41 @@ namespace BikeShop
             }
         }
 
-        private RentReturn()
+        public DateTime Created { get; }
+
+        public RentRequest AssociatedRentRequest { get; }
+
+        private RentReturn(DateTime created)
         {
             _bikes = new HashSet<Bike>();
+
+            Created = created;
         }
 
-        public RentReturn(Bike bike)
-            : this()
+        public RentReturn(RentRequest request, Bike bike, DateTime created)
+            : this(created)
         {
+            AssociatedRentRequest = request;
+
             Add(bike);
         }
 
-        public RentReturn(IEnumerable<Bike> bikes)
-            : this()
+        public RentReturn(RentRequest request, IEnumerable<Bike> bikes, DateTime created)
+            : this(created)
         {
+            AssociatedRentRequest = request;
+
             AddRange(bikes);
+        }
+
+        public RentReturn(RentRequest request, Bike bike)
+            : this(request, bike, DateTime.Now)
+        {
+        }
+
+        public RentReturn(RentRequest request, IEnumerable<Bike> bikes)
+            : this(request, bikes, DateTime.Now)
+        {
         }
 
         public void Add(Bike bike)

@@ -1,4 +1,5 @@
 ﻿using System;
+using BikeShop.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BikeShop.Test
@@ -6,6 +7,8 @@ namespace BikeShop.Test
     [TestClass]
     public class RentRequestTest
     {
+        private static RentStrategyFactory _fac = new RentStrategyFactory();
+
         [TestMethod]
         public void CreateARentRequest()
         {
@@ -26,31 +29,31 @@ namespace BikeShop.Test
         [TestMethod]
         public void CreateARentRequestByHour()
         {
-            var req = new RentRequest(RentRequest.RentMode.Hour);
+            var req = new RentRequest(_fac.CreateByHour());
 
             Assert.IsNotNull(req);
             Assert.IsTrue(req.Quantity == 1);
-            Assert.IsTrue(req.Mode == RentRequest.RentMode.Hour);
+            Assert.AreEqual(req.Strategy, _fac.CreateByHour());
         }
 
         [TestMethod]
         public void CreateARentRequestByDay()
         {
-            var req = new RentRequest(RentRequest.RentMode.Day);
+            var req = new RentRequest(_fac.CreateByDay());
 
             Assert.IsNotNull(req);
             Assert.IsTrue(req.Quantity == 1);
-            Assert.IsTrue(req.Mode == RentRequest.RentMode.Day);
+            Assert.AreEqual(req.Strategy, _fac.CreateByDay());
         }
 
         [TestMethod]
         public void CreateARentRequestByWeek()
         {
-            var req = new RentRequest(RentRequest.RentMode.Week);
+            var req = new RentRequest(_fac.CreateByWeek());
 
             Assert.IsNotNull(req);
             Assert.IsTrue(req.Quantity == 1);
-            Assert.IsTrue(req.Mode == RentRequest.RentMode.Week);
+            Assert.AreEqual(req.Strategy, _fac.CreateByWeek());
         }
     }
 }

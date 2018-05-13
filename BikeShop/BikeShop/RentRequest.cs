@@ -5,53 +5,66 @@
 namespace BikeShop
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class RentRequest
     {
-        public enum RentMode
+        public int Quantity { get; }
+
+        public RentStrategy Strategy { get; }
+
+        public DateTime Created { get; }
+
+        public RentRequest(int quantity, RentStrategy strategy, DateTime created)
         {
-            Hour,
-            Day,
-            Week
+            Quantity = quantity;
+            Strategy = strategy;
+            Created = created;
         }
 
-        internal readonly int _quantity;
-        private RentMode _hour;
-
-        public int Quantity
+        public RentRequest(int quantity, RentStrategy strategy)
+            : this(quantity, strategy, DateTime.Now)
         {
-            get
-            {
-                return _quantity;
-            }
         }
 
-        public RentMode Mode
-        {
-            get
-            {
-                return _hour;
-            }
-        }
-
-        public RentRequest()
-            : this(1)
+        public RentRequest(RentStrategy strategy)
+            : this(1, strategy, DateTime.Now)
         {
         }
 
         public RentRequest(int quantity)
+            : this(quantity, new HourRentStrategy(), DateTime.Now)
         {
-            _quantity = quantity;
         }
 
-        public RentRequest(RentMode mode)
-            : this(1)
+        public RentRequest()
+            : this(1, new HourRentStrategy(), DateTime.Now)
         {
-            _hour = mode;
+        }
+
+        public static bool operator ==(RentRequest a, RentRequest b)
+        {
+            return a.Quantity == b.Quantity
+                && a.Strategy == b.Strategy
+                && a.Created == b.Created;
+        }
+
+        public static bool operator !=(RentRequest a, RentRequest b)
+        {
+            return !(a == b);
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            return obj is RentRequest && this == (RentRequest)obj;
+        }
+
+        /// <inheritdoc/>
+        public override int GetHashCode()
+        {
+            return Quantity.GetHashCode()
+                ^ Strategy.GetHashCode()
+                ^ Created.GetHashCode();
         }
     }
 }

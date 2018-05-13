@@ -4,11 +4,8 @@
 
 namespace BikeShop
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
 
     public class BikeShop
     {
@@ -68,7 +65,10 @@ namespace BikeShop
         {
             Receive(ret.Bikes);
 
-            return new Invoice();
+            var inv = new Invoice();
+            inv.AddDetail(ret.AssociatedRentRequest.Strategy, ret.Bikes.Count(), ret.AssociatedRentRequest.Created, ret.Created);
+
+            return inv;
         }
     }
 }

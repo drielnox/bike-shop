@@ -2,7 +2,7 @@
 // Copyright (c) Bike Shop. All rights reserved.
 // </copyright>
 
-namespace BikeShop
+namespace BikeShop.Utilities
 {
     using System.Collections.Generic;
 

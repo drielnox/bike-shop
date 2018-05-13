@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BikeShop.Test
+namespace BikeShop.Utilities.Test
 {
     [TestClass]
     public class BikeFactoryTest
