@@ -44,5 +44,31 @@ namespace BikeShop
             Start = start;
             End = end;
         }
+
+        public static bool operator ==(InvoiceDetail a, InvoiceDetail b)
+        {
+            return a.End == b.End
+                && a.Quantity == b.Quantity
+                && a.Start == b.Start
+                && a.Strategy == b.Strategy;
+        }
+
+        public static bool operator !=(InvoiceDetail a, InvoiceDetail b)
+        {
+            return !(a == b);
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is InvoiceDetail && this == (InvoiceDetail)obj;
+        }
+
+        public override int GetHashCode()
+        {
+            return End.GetHashCode()
+                ^ Quantity.GetHashCode()
+                ^ Start.GetHashCode()
+                ^ Strategy.GetHashCode();
+        }
     }
 }

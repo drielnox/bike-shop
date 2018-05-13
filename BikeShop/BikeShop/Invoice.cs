@@ -36,16 +36,41 @@ namespace BikeShop
             Details = new HashSet<InvoiceDetail>();
         }
 
-        internal void AddDetail(RentStrategy strategy, int quantity, DateTime start, DateTime end)
+        public Invoice(InvoiceDetail det)
+            : this()
         {
-            var det = new InvoiceDetail(strategy, quantity, start, end);
+            AddDetail(det);
+        }
 
+        public Invoice(IEnumerable<InvoiceDetail> dets)
+            : this()
+        {
+            AddDetails(dets);
+        }
+
+        public void AddDetails(IEnumerable<InvoiceDetail> dets)
+        {
+            foreach (var det in dets)
+            {
+                AddDetail(det);
+            }
+        }
+
+        public void AddDetail(InvoiceDetail det)
+        {
             if (Details.Contains(det))
             {
                 throw new InvalidOperationException("The detail exist en the invoice.");
             }
 
             Details.Add(det);
+        }
+
+        internal void AddDetail(RentStrategy strategy, int quantity, DateTime start, DateTime end)
+        {
+            var det = new InvoiceDetail(strategy, quantity, start, end);
+
+            AddDetail(det);
         }
     }
 }

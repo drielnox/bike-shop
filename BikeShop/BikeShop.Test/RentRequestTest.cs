@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using BikeShop.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -54,6 +55,44 @@ namespace BikeShop.Test
             Assert.IsNotNull(req);
             Assert.IsTrue(req.Quantity == 1);
             Assert.AreEqual(req.Strategy, _fac.CreateByWeek());
+        }
+
+        [TestMethod]
+        public void ARentRequestIsEqualsToTheSameRentRequest()
+        {
+            var req = new RentRequest();
+
+            Assert.AreEqual(req, req);
+        }
+
+        [TestMethod]
+        public void ARentRequestIsEqualsToTheAnotherInstanceOfSameRentRequest()
+        {
+            var req1 = new RentRequest();
+            var req2 = new RentRequest();
+
+            Assert.AreEqual(req1, req2);
+        }
+
+        [TestMethod]
+        public void ARentRequestIsNotEqualsToAnotherRentRequest()
+        {
+            var req1 = new RentRequest();
+            var req2 = new RentRequest(_fac.CreateByDay());
+
+            Assert.AreNotEqual(req1, req2);
+        }
+
+        [TestMethod]
+        public void ASetOfRentRequestAreEqualsToSameSetOfRentRequest()
+        {
+            var req1 = new RentRequest();
+            var req2 = new RentRequest();
+
+            var s1 = new HashSet<RentRequest>(new[] { req1, req2 });
+            var s2 = new HashSet<RentRequest>(new[] { req1, req2 });
+
+            Assert.AreEqual(s1, s2);
         }
     }
 }
