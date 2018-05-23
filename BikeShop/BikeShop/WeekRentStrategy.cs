@@ -14,15 +14,16 @@ namespace BikeShop
         }
 
         /// <inheritdoc/>
-        public override int Compute(TimeSpan timeConsumed)
-        {
-            return (int)Math.Ceiling(timeConsumed.TotalDays / 7) * CostFactor;
-        }
-
-        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             return obj is WeekRentStrategy && this == (WeekRentStrategy)obj;
+        }
+
+        /// <inheritdoc/>
+        protected override int TimeRounding(TimeSpan time)
+        {
+            var truncatedDays = Math.Truncate(time.TotalDays);
+            return (int)(truncatedDays / 7 < 1 ? 1 : Math.Round(truncatedDays / 7));
         }
     }
 }

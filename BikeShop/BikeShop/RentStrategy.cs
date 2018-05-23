@@ -25,11 +25,16 @@ namespace BikeShop
             return !(a == b);
         }
 
-        public abstract int Compute(TimeSpan timeConsumed);
+        public virtual int Compute(TimeSpan timeConsumed)
+        {
+            return TimeRounding(timeConsumed) * CostFactor;
+        }
 
         public override int GetHashCode()
         {
             return CostFactor.GetHashCode();
         }
+
+        protected abstract int TimeRounding(TimeSpan time);
     }
 }
