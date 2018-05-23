@@ -276,7 +276,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 35);
+            Assert.IsTrue(inv.Total == 17.5m);
         }
 
         [TestMethod]
@@ -324,7 +324,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 437.5m);
+            Assert.IsTrue(inv.Total == 420);
         }
 
         [TestMethod]
@@ -340,7 +340,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 140);
+            Assert.IsTrue(inv.Total == 70);
         }
 
         [TestMethod]
@@ -372,7 +372,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 2957.5m);
+            Assert.IsTrue(inv.Total == 2940);
         }
 
         [TestMethod]
@@ -388,7 +388,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 560);
+            Assert.IsTrue(inv.Total == 490);
         }
 
         [TestMethod]
@@ -404,7 +404,7 @@ namespace BikeShop.Test
 
             Assert.IsNotNull(inv);
             Assert.IsTrue(inv.Details.Count() == 1);
-            Assert.IsTrue(inv.Total == 420);
+            Assert.IsTrue(inv.Total == 210);
         }
     }
 }

@@ -92,7 +92,7 @@ namespace BikeShop.Test
             var s1 = new HashSet<RentRequest>(new[] { req1, req2 });
             var s2 = new HashSet<RentRequest>(new[] { req1, req2 });
 
-            Assert.AreEqual(s1, s2);
+            Assert.IsTrue(s1.SetEquals(s2));
         }
     }
 }

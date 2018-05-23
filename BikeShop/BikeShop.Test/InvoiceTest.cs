@@ -24,7 +24,8 @@ namespace BikeShop.Test
         [TestMethod]
         public void CreateAInvoiceWithADetail()
         {
-            var invdet = new InvoiceDetail(_fac.CreateByHour(), 1, DateTime.Now, DateTime.Now.AddHours(1));
+            var now = DateTime.Now;
+            var invdet = new InvoiceDetail(_fac.CreateByHour(), 1, now, now.AddHours(1));
             var inv = new Invoice(invdet);
 
             Assert.IsNotNull(inv);
@@ -37,19 +38,20 @@ namespace BikeShop.Test
         [ExpectedException(typeof(InvalidOperationException))]
         public void CreateAInvoiceWithTwoSameDetails()
         {
-            var invdet1 = new InvoiceDetail(_fac.CreateByHour(), 1, DateTime.Now, DateTime.Now.AddHours(1));
-            var invdet2 = new InvoiceDetail(_fac.CreateByHour(), 1, DateTime.Now, DateTime.Now.AddHours(1));
+            var now = DateTime.Now;
+            var invdet1 = new InvoiceDetail(_fac.CreateByHour(), 1, now, now.AddHours(1));
+            var invdet2 = new InvoiceDetail(_fac.CreateByHour(), 1, now, now.AddHours(1));
             var inv = new Invoice(new[] { invdet1, invdet2 });
 
             Assert.Fail("Isn't allowed two same details.");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
         public void CreateAInvoiceWithTwoDifferentsDetails()
         {
-            var invdet1 = new InvoiceDetail(_fac.CreateByHour(), 1, DateTime.Now, DateTime.Now.AddHours(1));
-            var invdet2 = new InvoiceDetail(_fac.CreateByDay(), 1, DateTime.Now, DateTime.Now.AddDays(1));
+            var now = DateTime.Now;
+            var invdet1 = new InvoiceDetail(_fac.CreateByHour(), 1, now, now.AddHours(1));
+            var invdet2 = new InvoiceDetail(_fac.CreateByDay(), 1, now, now.AddDays(1));
             var inv = new Invoice(new[] { invdet1, invdet2 });
 
             Assert.IsNotNull(inv);
