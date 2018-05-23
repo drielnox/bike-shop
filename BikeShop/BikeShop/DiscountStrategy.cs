@@ -9,6 +9,8 @@ namespace BikeShop
 
     public abstract class DiscountStrategy
     {
+        public decimal DiscountFactor { get; protected set; }
+
         public abstract decimal GetDiscount(ISet<InvoiceDetail> dets);
     }
 }

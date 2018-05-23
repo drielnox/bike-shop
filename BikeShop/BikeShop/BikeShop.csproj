@@ -48,7 +48,9 @@
     <Compile Include="Bike.cs" />
     <Compile Include="BikeShop.cs" />
     <Compile Include="DayRentStrategy.cs" />
+    <Compile Include="DiscountCreator.cs" />
     <Compile Include="DiscountStrategy.cs" />
+    <Compile Include="GenericDiscountStrategy.cs" />
     <Compile Include="HourRentStrategy.cs" />
     <Compile Include="Invoice.cs" />
     <Compile Include="InvoiceDetail.cs" />

@@ -8,10 +8,15 @@ namespace BikeShop
 
     public class NoDiscountStrategy : DiscountStrategy
     {
+        public NoDiscountStrategy()
+        {
+            DiscountFactor = 0;
+        }
+
         /// <inheritdoc/>
         public override decimal GetDiscount(ISet<InvoiceDetail> dets)
         {
-            return 0;
+            return DiscountFactor;
         }
     }
 }

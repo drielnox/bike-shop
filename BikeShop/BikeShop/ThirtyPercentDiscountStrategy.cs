@@ -16,6 +16,11 @@ namespace BikeShop
             public decimal TotalPrice { get; set; }
         }
 
+        public ThirtyPercentDiscountStrategy()
+        {
+            DiscountFactor = .3m;
+        }
+
         /// <inheritdoc/>
         public override decimal GetDiscount(ISet<InvoiceDetail> dets)
         {
@@ -53,7 +58,7 @@ namespace BikeShop
             var rest = a.TotalQuantity % factor;
             var partValue = a.TotalPrice / a.TotalQuantity;
 
-            return (a.TotalQuantity - rest) * partValue * .3m;
+            return (a.TotalQuantity - rest) * partValue * DiscountFactor;
         }
     }
 }

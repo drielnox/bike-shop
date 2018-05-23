@@ -18,13 +18,17 @@ namespace BikeShop
             {
                 DiscountStrategy discStr;
 
-                if (Details.Sum(x => x.Quantity) > 3)
+                if (Details.Sum(x => x.Quantity) > 10)
                 {
-                    discStr = new ThirtyPercentDiscountStrategy();
+                    discStr = DiscountCreator.CreateStrategy(.5m);
+                }
+                else if (Details.Sum(x => x.Quantity) > 3)
+                {
+                    discStr = DiscountCreator.CreateThirtyPercentDiscountStrategy();
                 }
                 else
                 {
-                    discStr = new NoDiscountStrategy();
+                    discStr = DiscountCreator.CreateNoDiscountStrategy();
                 }
 
                 return Details.Sum(x => x.SubTotal) - discStr.GetDiscount(Details);
